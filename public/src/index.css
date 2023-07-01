@@ -3,6 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "Inter", sans-serif;
+  --shadow: rgba(0, 0, 0, 0.05) 0px 6px 10px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+  --color: #166e67;
+  --gap: 0.5rem;
+  --radius: 5px;
 }
 body {
   font-family: "Ubuntu", sans-serif;
@@ -59,6 +66,20 @@ body {
     );
   background-size: 46px 81px;
   background-position: 0 0, 0 0, 23px 40px, 23px 40px, 0 0, 23px 40px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 900;
+  padding: 2px;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  color:#00ccff;
 }
 
 .login_form_container {
@@ -120,11 +141,7 @@ body {
   z-index: 10;
   color: #00ccff;
 }
-h2 {
-  font-size: 30px;
-  font-weight: 600;
-  text-align: center;
-}
+
 .input_group {
   margin-top: 35px;
   position: relative;
@@ -132,6 +149,7 @@ h2 {
   align-items: center;
   justify-content: start;
 }
+
 .input_text {
   width: 95%;
   height: 30px;
@@ -257,3 +275,30 @@ h2 {
     font-size: 18px;
   }
 }
+
+.array-container {
+  max-height: 300px; /* Set the maximum height of the table container */
+  overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+.array {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.array td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.array th {
+  background-color: #0c1022;
+  color: white;
+}
+
+.array tr:nth-child(even) {
+  background-color: #dddddd;
+}
+

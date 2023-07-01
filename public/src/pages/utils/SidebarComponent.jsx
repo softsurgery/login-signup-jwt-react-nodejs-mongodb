@@ -19,6 +19,5 @@ export default function SidebarComponent(props) {
         <Link to="" onClick={logOut}>Logout</Link>
       </div>
     </div>
-
   );
 }
