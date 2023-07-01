@@ -7,7 +7,7 @@ import SidebarComponent from "./utils/SidebarComponent";
 import { styled } from "styled-components";
 
 const Section = styled.section`
-  margin-left: ${props => props.isToggled ? "250px" : "0px"};
+  margin-left: ${props => props.marginLeft};
   transition: margin-left .5s;
   padding-left: 20px;
 `;
@@ -49,7 +49,7 @@ export default function Main({ children }) {
         isToggled={isToggled}
         toggle={toggle}
       /> : ""}
-      <Section isToggled={isToggled}>
+      <Section marginLeft={isToggled ? "250px" : "0px"}>
         {cookies.jwt ? <button className="openbtn" onClick={toggle}>&#9776; MENU</button> : ""}
         <div>
           {children}

@@ -18,11 +18,9 @@ const Header = styled.div`
     margin:30px;
     padding: 20px;
     border-radius:5px;
+    color :#040717;
 `;
 
-const Button = styled.button`
-
-`;
 
 export default function CompOne() {
     return (<div>
@@ -33,18 +31,25 @@ export default function CompOne() {
 
             <div className="array-container">
                 <table className="array">
+                <thead>
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>E-mail</th>
                         <th>Phone Number</th>
                         <th>Address</th>
                         <th>Rating</th>
                         <th>Action</th>
                     </tr>
+                    </thead>
+                    <tbody>
+
+                    
                     <tr>
                         <td>Alfreds Futterkiste</td>
                         <td>Maria Anders</td>
                         <td>Germany</td>
+                        <td>Maria Anders</td>
                         <td>Maria Anders</td>
                         <td>Germany</td>
                         <td><DropdownMenu></DropdownMenu></td>
@@ -54,9 +59,11 @@ export default function CompOne() {
                         <td>Maria Anders</td>
                         <td>Germany</td>
                         <td>Maria Anders</td>
+                        <td>Maria Anders</td>
                         <td>Germany</td>
                         <td><DropdownMenu></DropdownMenu></td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </Content>

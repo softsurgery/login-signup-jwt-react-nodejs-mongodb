@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp,faCircleInfo,faPenToSquare,faTrash } from "@fortawesome/free-solid-svg-icons";
+
 
 const Button = styled.button`
     font-size:16px;
@@ -21,7 +24,7 @@ const Button = styled.button`
 
 const Dropdown = styled.div`
     position: absolute;
-    width: 190px;
+    width: 22.2vh;
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     margin-top: 0.3rem;
@@ -40,7 +43,7 @@ const Tab = styled.a`
     color: white;
     border : 1px solid #0c1022;
     margin:0.2rem;
-    background-color:black;
+    background-color:#040717;
     border-radius:0.2rem;
     &:hover {
         padding: 0.5rem 1.2rem;
@@ -65,27 +68,32 @@ export default function DropdownMenu() {
         setIsToggled(!isToggled);
     };
 
-    return (
-        <div>
-            <Button onClick={toggleDropdown}>
-                Action
-                <i className="bx bx-chevron-down" id="arrow"></i>
-            </Button>
+    const closeDropdown = (event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+            setIsToggled(false);
+        }
+    };
 
-            <Dropdown style={isToggled ? show : hide} onBlur={toggleDropdown}>
-                <Tab href="#create"
+    return (
+        <div onBlurCapture={closeDropdown}>
+            <Button onClick={toggleDropdown}>
+            <FontAwesomeIcon icon={faArrowUp} />Action
+            </Button>
+            <Dropdown style={isToggled ? show : hide} >
+                <Tab
+                onClick={()=>{alert("gg")}}
                     style={isToggled ? show : hide}>
-                    <i className="bx bx-plus-circle"></i>
+                    <FontAwesomeIcon icon={faCircleInfo} />
                     Show Details
                 </Tab >
-                <Tab href="#draft"
+                <Tab
                 style={isToggled ? show : hide}>
-                    <i className="bx bx-book"></i>
+                   <FontAwesomeIcon icon={faPenToSquare} />
                     Modify
                 </Tab >
-                <Tab href="#draft"
+                <Tab
                 style={isToggled ? show : hide}>
-                    <i className="bx bx-book"></i>
+                   <FontAwesomeIcon icon={faTrash} />
                     Delete
                 </Tab >
             </Dropdown>

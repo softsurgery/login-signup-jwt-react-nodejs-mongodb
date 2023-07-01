@@ -7,6 +7,7 @@ exports.createClient = async (req, res) => {
     const client = new Client({
       firstName,
       lastName,
+      email,
       phoneNumber,
       address,
       rate
@@ -50,11 +51,11 @@ exports.getClientById = async (req, res) => {
 exports.updateClient = async (req, res) => {
   try {
     const { clientId } = req.params;
-    const { firstName, lastName, phoneNumber, address, rate } = req.body;
+    const { firstName, lastName,email, phoneNumber, address, rate } = req.body;
     
     const updatedClient = await Client.findByIdAndUpdate(
       clientId,
-      { firstName, lastName, phoneNumber, address, rate },
+      { firstName, lastName,email, phoneNumber, address, rate },
       { new: true }
     );
     
