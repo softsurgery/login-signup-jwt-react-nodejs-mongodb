@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
-import { FlexBox } from "../utils/FlexBox";
+import { FlexBox } from "../utils/CustomStyled";
 import { Toaster } from "../utils/Toaster";
 import { toast } from "react-toastify";
 

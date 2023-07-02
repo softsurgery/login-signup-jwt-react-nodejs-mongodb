@@ -2,7 +2,7 @@ const Client = require('../model/clientModel');
 
 exports.createClient = async (req, res) => {
   try {
-    const { firstName, lastName, phoneNumber, address, rate } = req.body;
+    const { firstName, lastName,email, phoneNumber, address, rate } = req.body;
     
     const client = new Client({
       firstName,

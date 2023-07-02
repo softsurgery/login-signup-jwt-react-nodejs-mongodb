@@ -43,11 +43,20 @@ export default function Main({ children }) {
     };
     verifyUser();
   }, [cookies, navigate, removeCookie]);
+  if (!cookies.jwt) return (<div></div>)
+  else
   return (
     <div>
-      {cookies.jwt ? <SidebarComponent
+      {cookies.jwt ? 
+      <SidebarComponent
         isToggled={isToggled}
         toggle={toggle}
+        items={[
+          {
+            title:"Clients",
+            url:"/clients"
+          },
+        ]}
       /> : ""}
       <Section marginLeft={isToggled ? "250px" : "0px"}>
         {cookies.jwt ? <button className="openbtn" onClick={toggle}>&#9776; MENU</button> : ""}

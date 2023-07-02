@@ -1,28 +1,28 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser,faStar,faXmark } from "@fortawesome/free-solid-svg-icons";
 import DropdownMenu from "../utils/DropdownMenu";
-
-const Content = styled.div`
-    background-color:white;
-    opacity:0.7;
-    margin:30px;
-    padding: 20px;
-    border-radius:5px;
-    margin-top : 
-`;
-const Header = styled.div`
-    background-color:white;
-    opacity:0.7;
-    margin:30px;
-    padding: 20px;
-    border-radius:5px;
-    color :#040717;
-`;
+import { Header,Content } from "../utils/CustomStyled";
 
 
-export default function CompOne() {
+
+export default function Clients() {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchAllUsers = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/clients");
+                const users = response.data;
+                setUsers(users);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchAllUsers();
+    }, []);
+
     return (<div>
         <Header>
             <h1> <FontAwesomeIcon icon={faUser} /> <span> Clients</span></h1>
@@ -31,38 +31,31 @@ export default function CompOne() {
 
             <div className="array-container">
                 <table className="array">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>E-mail</th>
-                        <th>Phone Number</th>
-                        <th>Address</th>
-                        <th>Rating</th>
-                        <th>Action</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>E-mail</th>
+                            <th>Phone Number</th>
+                            <th>Address</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
-
-                    
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td>Maria Anders</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td><DropdownMenu></DropdownMenu></td>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td>Maria Anders</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                        <td><DropdownMenu></DropdownMenu></td>
-                    </tr>
+                        {users.map(user => {
+                            return (<tr key={user._id}>
+                                <td>{user.firstName}</td>
+                                <td>{user.lastName}</td>
+                                <td>{user.email}</td>
+                                <td>{user.phoneNumber}</td>
+                                <td>{user.address}</td>
+                                <td style={{textAlign:"center",color: user.rate>5 ? "green" : " red"}}>
+                                <span>{user.rate}</span> <FontAwesomeIcon icon={user.rate>5 ? faStar : ""} /> 
+                                </td>
+                                <td style={{width: "9%",  backgroundColor: "white"}}><DropdownMenu/></td>
+                            </tr>)
+                        })}
                     </tbody>
                 </table>
             </div>

@@ -14,8 +14,7 @@ export default function SidebarComponent(props) {
     <div>
       <div className="sidebar" style={{ width: props.isToggled ? "250px" : "0" }}>
         <Link to="" className="closebtn" onClick={() => { props.toggle() }}>&times;</Link>
-        <Link to="/comp1">Dashboard1</Link>
-        <Link to="/comp2">Dashboard2</Link>
+        {props.items.map(item => <Link to={item.url}>{item.title}</Link>)}
         <Link to="" onClick={logOut}>Logout</Link>
       </div>
     </div>

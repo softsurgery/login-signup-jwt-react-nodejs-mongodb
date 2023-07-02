@@ -4,8 +4,7 @@ import { Routes, Route} from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import "react-toastify/dist/ReactToastify.css";
 import Main from "./pages/Main";
-import CompOne from "./pages/Clients/Clients";
-import CompTwo from "./pages/CompTwo"
+import Clients from "./pages/Clients/Clients";
 
 export default function App(){
   return (
@@ -14,8 +13,7 @@ export default function App(){
           <Route exact path="/" element={<Main/>} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/comp1" element={<Main children={<CompOne/>}/>} />
-          <Route exact path="/comp2" element={<Main children={<CompTwo/>}/>} />
+          <Route exact path="/clients" element={<Main children={<Clients/>}/>} />
         </Routes>
     </div>
   );
