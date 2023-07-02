@@ -14,6 +14,6 @@ router.post('/clients', clientController.createClient);
 router.get('/clients', clientController.getAllClients);
 router.get('/clients/:clientId', clientController.getClientById);
 router.put('/clients/:clientId', clientController.updateClient);
-router.delete('/clients/:clientId', clientController.deleteClient);
+router.delete('/clients', clientController.deleteClient);
 
 module.exports = router;

@@ -16,11 +16,15 @@ export const Button = styled.button`
     box-shadow: var(--shadow);
     position: relative;
     border : 3px solid #0c1022;
+    margin-left:10px;
+    color:black;
+    &:hover {
+        color: #ee00ff
+    }
 `;
 
 export const Dropdown = styled.div`
     position: absolute;
-
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     margin-top: 0.3rem;
@@ -59,7 +63,7 @@ export const Content = styled.div`
     opacity:0.7;
     margin:30px;
     padding: 20px;
-    border-radius:5px;
+    border-radius:10px;
     margin-top : 
 `;
 export const Header = styled.div`
