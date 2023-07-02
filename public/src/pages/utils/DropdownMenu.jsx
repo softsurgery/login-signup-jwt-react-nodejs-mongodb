@@ -28,7 +28,7 @@ export default function DropdownMenu() {
     };
 
     return (
-        <div onBlurCapture={closeDropdown}>
+        <div onBlurCapture={(event) => closeDropdown(event)}>
             <Button onClick={toggleDropdown}>
             <span style={{ 
                 transition: "transform 0.2s",

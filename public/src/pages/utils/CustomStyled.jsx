@@ -20,7 +20,7 @@ export const Button = styled.button`
 
 export const Dropdown = styled.div`
     position: absolute;
-    width: 20vh;
+
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     margin-top: 0.3rem;
@@ -43,7 +43,7 @@ export const Tab = styled.a`
     background-color:#040717;
     border-radius:0.2rem;
     &:hover {
-        padding: 0.5rem 1.2rem;
+        color: #ee00ff
     }
 `;
 

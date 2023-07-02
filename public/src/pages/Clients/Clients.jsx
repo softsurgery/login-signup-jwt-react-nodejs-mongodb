@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser,faStar,faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faUser,faStar } from "@fortawesome/free-solid-svg-icons";
 import DropdownMenu from "../utils/DropdownMenu";
 import { Header,Content } from "../utils/CustomStyled";
 
@@ -53,7 +53,7 @@ export default function Clients() {
                                 <td style={{textAlign:"center",color: user.rate>5 ? "green" : " red"}}>
                                 <span>{user.rate}</span> <FontAwesomeIcon icon={user.rate>5 ? faStar : ""} /> 
                                 </td>
-                                <td style={{width: "9%",  backgroundColor: "white"}}><DropdownMenu/></td>
+                                <td style={{width: "100px",  backgroundColor: "white"}}><DropdownMenu/></td>
                             </tr>)
                         })}
                     </tbody>

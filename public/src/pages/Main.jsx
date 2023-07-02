@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 import { toast, ToastContainer } from "react-toastify";
 import SidebarComponent from "./utils/SidebarComponent";
 import { styled } from "styled-components";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Section = styled.section`
   margin-left: ${props => props.marginLeft};
@@ -54,7 +55,13 @@ export default function Main({ children }) {
         items={[
           {
             title:"Clients",
-            url:"/clients"
+            url:"/clients",
+            icon : faUser
+          },
+          {
+            title:"Clients",
+            url:"/clients",
+            icon : faUser
           },
         ]}
       /> : ""}

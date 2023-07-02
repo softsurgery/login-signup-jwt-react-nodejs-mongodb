@@ -140,6 +140,7 @@ h2 {
   padding: 50px 40px;
   z-index: 10;
   color: #00ccff;
+  overflow: hidden;
 }
 
 .input_group {
@@ -232,15 +233,15 @@ h2 {
 
 .sidebar a {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 21px;
   color: #ffffff;
-  display: block;
-  transition: 0.3s;
-  padding: 20px;
+  display: flex;
+  transition: 0.1s;
+  padding: 15px 0px 10px 30px;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #ee00ffa1;
 }
 
 .sidebar .closebtn {

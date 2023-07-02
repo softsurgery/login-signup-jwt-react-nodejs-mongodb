@@ -1,6 +1,7 @@
 import React from "react";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SidebarComponent(props) {
   const [cookies, setCookie, removeCookie] = useCookies([]);
@@ -12,9 +13,9 @@ export default function SidebarComponent(props) {
 
   return (
     <div>
-      <div className="sidebar" style={{ width: props.isToggled ? "250px" : "0" }}>
+      <div className="sidebar" style={{ width: props.isToggled ? "250px" : "0px" }}>
         <Link to="" className="closebtn" onClick={() => { props.toggle() }}>&times;</Link>
-        {props.items.map(item => <Link to={item.url}>{item.title}</Link>)}
+        {props.items.map(item => <Link to={item.url}><FontAwesomeIcon icon={item.icon} style={{marginRight:"10px"}}/><span> {item.title}</span></Link>)}
         <Link to="" onClick={logOut}>Logout</Link>
       </div>
     </div>
