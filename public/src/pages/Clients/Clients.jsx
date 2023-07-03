@@ -113,14 +113,11 @@ export default function Clients() {
                         Previous
                     </Button>
                     <Button style={{ background: currentPage > maxPage - 1 ? "grey" : "" }} onClick={handleNextPage}>Next</Button>
-                    <div> <div className="pagination" style={{
-                        display: "inline-flex",
-                        position: "relative"
-                    }}>
+                    
                         <Button onClick={handleRefresh}>
                             <FontAwesomeIcon icon={faArrowsRotate} /> <span>{currentPage}/{maxPage}</span>
                         </Button>
-                    </div></div>
+                   
                 </div>
             </Content>
         </div>

@@ -1,52 +1,65 @@
 import React from "react";
-import { Button, Content } from "./CustomStyled";
+import styled from "styled-components";
+import { Button } from "./CustomStyled";
 
-export default function Alert(props = {
-    isVisible: false,
-    items: []
-}) {
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.1s ease;
+  overflow: hidden;
+`;
 
-    return (
-        <div>
-            {props.isVisible === true && (
-                <div>
-                    <div
-                        style={{
-                            position: "fixed",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%",
-                            backgroundColor: "rgba(0, 0, 0, 0.4)",
-                            zIndex: 9998,
-                        }}
-                        onClick={props.items[1].action}
-                    ></div>
-                    <Content
-                        style={{
-                            position: "absolute",
-                            top: "43%",
-                            left: "43%",
-                            margin: "auto",
-                            zIndex: "9999",
-                            height: "170px",
-                        }}
-                    >
-                        <Button onClick={props.items[1].action} style={{ position: "absolute", top: "10px", right: "10px" }}>x</Button>
-                        <h2 style={{ margin: "10px", }}>{props.message}</h2>
-                        <div style={{ textAlign: "center" }}>
-                            {props.items.map((item, index) => (
-                                <Button
-                                    style={{ display: "inline-block" }}
-                                    key={item.content}
-                                    onClick={props.items[index].action}>
-                                    {item.content}
-                                </Button>
-                            ))}
-                        </div>
-                    </Content>
-                </div>
-            )}
-        </div>
-    );
+const Popup = styled.div`
+  margin: 400px auto;
+  padding: 20px;
+  background: white;
+  opacity : 1
+  border-radius: 5px;
+  width: 20%;
+  position: relative;
+  transition: all 0.1s ease;
+  border-radius: 20px;
+  border: 8px solid rgba(0, 0, 0, 0.8)
+`;
+
+const Content = styled.div`
+  max-height: 40%;
+  overflow: auto;
+`;
+
+const show = {
+  visibility: "visible",
+  opacity: "1",
+};
+
+const hide = {
+  visibility: "hidden",
+  opacity: "0",
+};
+
+export default function Alert(props) {
+  return (
+    <Overlay style={props.isVisible ? show : hide}>
+      <Popup>
+        <Content>
+          <h3 style={{ margin: "10px" }}>{props.message}</h3>
+          <div style={{ textAlign: "center" }}>
+            {props.items.map((item, index) => (
+              <Button
+                style={{ display: "inline-block" }}
+                key={item.content}
+                onClick={props.items[index].action}
+              >
+                {item.content}
+              </Button>
+            ))}
+          </div>
+        </Content>
+      </Popup>
+    </Overlay>
+  );
 }

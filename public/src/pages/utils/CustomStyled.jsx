@@ -16,7 +16,7 @@ export const Button = styled.button`
     box-shadow: var(--shadow);
     position: relative;
     border : 3px solid #0c1022;
-    margin-left:10px;
+    margin-left: 10px;
     color:black;
     &:hover {
         color: #ee00ff
