@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faStar, faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faStar, faArrowsRotate, faAdd } from "@fortawesome/free-solid-svg-icons";
 import DropdownMenu from "../utils/DropdownMenu";
-import { Header, Content, Button } from "../utils/CustomStyled";
+import { Header, Content, Button, PrimaryButton } from "../utils/CustomStyled";
+import { useNavigate } from "react-router-dom";
 
+
+const active = {
+    pointerEvents: "none",
+    background: "grey"
+}
 
 export default function Clients() {
     const [clients, setClients] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [maxPage, setMaxPage] = useState(1);
-    const [refresh,setRefresh] = useState(true);
+    const [refresh, setRefresh] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchClientsByPage(currentPage);
@@ -43,6 +50,7 @@ export default function Clients() {
         } catch (error) {
             console.error(error);
         }
+        handleRefresh();
     };
 
     const handleNextPage = () => {
@@ -59,6 +67,14 @@ export default function Clients() {
                 <h1>
                     <FontAwesomeIcon icon={faUser} /> <span> Clients</span>
                 </h1>
+
+                <PrimaryButton
+                    color="#00a150"
+                    textColor="white"
+                    hoverColor="#c2daff"
+                    onClick={()=>{navigate("/add_client")}}
+                ><FontAwesomeIcon icon={faAdd} /> ADD CLIENT</PrimaryButton>
+
             </Header>
             <Content>
                 <div className="array-container" >
@@ -98,10 +114,10 @@ export default function Clients() {
                                                 icon={client.rate > 5 ? faStar : ""}
                                             />
                                         </td>
-                                        <td style={{ width: "100px", backgroundColor: "white" }}>
-                                            <DropdownMenu 
-                                            id={client.email}
-                                            delete={() => deleteClient(client.email)} />
+                                        <td style={{ width: "100px" }}>
+                                            <DropdownMenu
+                                                id={client.email}
+                                                delete={() => deleteClient(client.email)} />
                                         </td>
                                     </tr>
                                 ))}
@@ -109,15 +125,15 @@ export default function Clients() {
                     </table>
                 </div>
                 <div className="pagination" style={{ display: "flex" }}>
-                    <Button style={{ background: currentPage === 1 ? "grey" : "" }} onClick={handlePreviousPage}>
+                    <Button style={currentPage === 1 ? active : {}} onClick={handlePreviousPage}>
                         Previous
                     </Button>
-                    <Button style={{ background: currentPage > maxPage - 1 ? "grey" : "" }} onClick={handleNextPage}>Next</Button>
-                    
-                        <Button onClick={handleRefresh}>
-                            <FontAwesomeIcon icon={faArrowsRotate} /> <span>{currentPage}/{maxPage}</span>
-                        </Button>
-                   
+                    <Button style={currentPage > maxPage - 1 ? active : {}} onClick={handleNextPage}>Next</Button>
+
+                    <Button onClick={handleRefresh}>
+                        <FontAwesomeIcon icon={faArrowsRotate} /> <span>{currentPage}/{maxPage}</span>
+                    </Button>
+
                 </div>
             </Content>
         </div>

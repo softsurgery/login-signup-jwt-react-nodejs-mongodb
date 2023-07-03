@@ -11,19 +11,22 @@ const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 0.1s ease;
   overflow: hidden;
+  z-index: 10000;
+
 `;
 
 const Popup = styled.div`
-  margin: 400px auto;
+  margin: 40vh auto;
   padding: 20px;
   background: white;
   opacity : 1
   border-radius: 5px;
-  width: 20%;
+  width: 30%;
   position: relative;
   transition: all 0.1s ease;
   border-radius: 20px;
-  border: 8px solid rgba(0, 0, 0, 0.8)
+  border: 5px solid rgba(0, 0, 0, 0.8);  
+
 `;
 
 const Content = styled.div`

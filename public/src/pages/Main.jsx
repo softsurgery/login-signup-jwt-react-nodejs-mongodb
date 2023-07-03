@@ -17,8 +17,13 @@ export default function Main({ children }) {
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
   const [isToggled, setIsToggled] = useState(false);
+
   const toggle = () => {
     setIsToggled(!isToggled);
+  };
+
+  const close = () => {
+    setIsToggled(false);
   };
 
   useEffect(() => {
@@ -52,12 +57,8 @@ export default function Main({ children }) {
       <SidebarComponent
         isToggled={isToggled}
         toggle={toggle}
+        close={close}
         items={[
-          {
-            title:"Clients",
-            url:"/clients",
-            icon : faUser
-          },
           {
             title:"Clients",
             url:"/clients",

@@ -5,6 +5,7 @@ import Login from "./pages/Auth/Login";
 import "react-toastify/dist/ReactToastify.css";
 import Main from "./pages/Main";
 import Clients from "./pages/Clients/Clients";
+import AddClient from "./pages/Clients/AddClient";
 
 export default function App(){
   return (
@@ -14,6 +15,7 @@ export default function App(){
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/clients" element={<Main children={<Clients/>}/>} />
+          <Route exact path="/add_client" element={<Main children={<AddClient/>}/>} />
         </Routes>
     </div>
   );

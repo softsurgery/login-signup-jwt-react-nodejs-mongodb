@@ -38,6 +38,7 @@ export const Tab = styled.a`
     font-size:18px;
     display: flex;
     align-items: center;
+    cursor: pointer;
     column-gap: var(--gap);
     padding: 0.4rem 1rem;
     text-decoration: none;
@@ -58,19 +59,42 @@ export const FlexBox = styled.div`
   display: flex;
 `;
 
-export const Content = styled.div`
-    background-color:white;
-    opacity:0.7;
-    margin:30px;
-    padding: 20px;
-    border-radius:10px;
-    margin-top : 
-`;
 export const Header = styled.div`
     background-color:white;
     opacity:0.7;
     margin:35px;
     padding: 20px;
     border-radius:5px;
-    color :#040717;
+    display:flex;
+`;
+
+export const Content = styled.div`
+    background-color:white;
+    opacity:0.7;
+    margin:30px;
+    padding: 20px;
+    border-radius:10px;
+    margin-top : 50px; 
+`;
+
+export const PrimaryButton = styled.button`
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing: 2px;
+    background-color: ${props => props.color};
+    height: 40px;
+    column-gap: var(--gap);
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: var(--radius);
+    border: none;
+    box-shadow: var(--shadow);
+    position: relative;
+    border : 3px solid #0c1022;
+    margin : auto;
+    margin-right: 0;
+    color:${props => props.textColor};
+    &:hover {
+        color: ${props => props.hoverColor};
+    }
 `;
