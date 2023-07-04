@@ -50,7 +50,7 @@ export default function DropdownMenu(props) {
             </Button>
             <Dropdown name="menu" style={isToggled ? show : hide}>
                 <Tab
-                    onClick={() => { alert("gg") }}
+                    onClick={() => props.display() }
                     style={isToggled ? show : hide}>
                     <FontAwesomeIcon icon={faCircleInfo} />
                     Details

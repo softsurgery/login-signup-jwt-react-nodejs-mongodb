@@ -41,6 +41,16 @@ export default function Clients() {
         }
     };
 
+    const displayClient = (client) => {
+        alert(`Client :\n
+        First Name : ${client.firstName}\n 
+        Last Name : ${client.lastName}\n
+        E-mail : ${client.email}\n 
+        Phone Number :${client.phoneNumber}\n
+        Address : ${client.address}\n 
+        Rate :${client.rate}`);
+    }
+
     const deleteClient = async (email) => {
         try {
             await axios.delete("http://localhost:4000/clients", { data: { email } });
@@ -116,7 +126,8 @@ export default function Clients() {
                                         </td>
                                         <td style={{ width: "100px" }}>
                                             <DropdownMenu
-                                                id={client.email}
+                                                id={client}
+                                                display={()=> displayClient(client)}
                                                 delete={() => deleteClient(client.email)} />
                                         </td>
                                     </tr>
